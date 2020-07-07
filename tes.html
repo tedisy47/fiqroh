@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<div id="map" style="height: 200px">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+<!--<script src="--><!--assets/js/main.js"></script>-->
+  
+  <script>
+      function initMap() {
+        var myLatlng = {lat: -25.363, lng: 131.044};
+
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 4, center: myLatlng});
+
+        // Create the initial InfoWindow.
+        var infoWindow = new google.maps.InfoWindow(
+            {content: 'Click the map to get Lat/Lng!', position: myLatlng});
+        infoWindow.open(map);
+
+        // Configure the click listener.
+        map.addListener('click', function(mapsMouseEvent) {
+          // Close the current InfoWindow.
+          infoWindow.close();
+
+          // Create a new InfoWindow.
+          infoWindow = new google.maps.InfoWindow({position: mapsMouseEvent.latLng});
+          infoWindow.setContent(mapsMouseEvent.latLng.toString());
+          infoWindow.open(map);
+        });
+      }
+      // initMap();
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgINDzGpgwWpcZtnOLuw5DtWcrO_VUsoE&libraries=places&callback=initMap"
+      type="text/javascript"></script>
+</body>
+</html>
