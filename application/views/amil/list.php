@@ -34,7 +34,7 @@
           <form method="post" action="<?=site_url('ambil/index')?>">
             <input type="hidden" name="lat" id="lat">
             <input type="hidden" name="lng" id="lng">
-            <button type="submit" class="btn btn-success btn-block"><i class="fa fa-home fa-2x"></i><br>Amil terdekat</button>        
+            <button type="submit" class="btn btn-success btn-block"><i class="fa fa-truck fa-2x"></i><br>Ambil Zakat</button>        
           </form>
         </div>
       </div>
