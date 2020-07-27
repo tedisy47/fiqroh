@@ -25,10 +25,9 @@
   * sidebar-collapse
   * sidebar-mini
 -->
-<body class="hold-transition sidebar-mini">
-<div class="wrapper">
+<body  style="background: #f7f7f7">
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light text-center">
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light text-center" style="background: white">
     <button onclick="window.history.back()" class="btn btn-warning"><i class="fa fa-arrow-left"></i> Back</button>
 
     <h3 class="pl-5 ml-3"><?=$title?></h3>
@@ -55,7 +54,6 @@
  <?php $this->load->view($page)?>
 
   <!-- Main Footer -->
-</div>
   <!-- <footer class="footer nav-footer pt-2 pb-2 mt-10">
     <div class="row">
     <button type="button" class="btn btn-warning float-left ml-2" onclick="history.back();"><i class="fa fa-arrow-left"></i>Back</button>

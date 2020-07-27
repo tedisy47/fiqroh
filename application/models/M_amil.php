@@ -6,17 +6,17 @@ class M_amil extends MY_Model{
     {
         // parent::__construct();
        $this->table  = array(
-        	'name' => 'amil',
-        	'primary_key' => 'amil_id',
+        	'name' => 'alamat_pengambilan',
+        	'primary_key' => 'id',
         	'field' =>array(
-        		'amil_id' => array(
+        		'id' => array(
         			'type' => 'hidden', 'col'=>'12','label'=>'id'
         		),
-        		'nama_amil' => array(
-        			'type' => 'text', 'col'=>'12','label'=>'Nama Lembaga Amil'
+        		'nama' => array(
+        			'type' => 'text', 'col'=>'12','label'=>'Nama'
         		),
-        		'penanggung_jawab' => array(
-        			'type' => 'text', 'col'=>'12','label'=>'Penanggung Jawab'
+        		'nama_barang' => array(
+        			'type' => 'text', 'col'=>'12','label'=>'Nama Barang'
         		),
         		'amil_id' => array(
         			'type' => 'hidden', 'col'=>'12','label'=>'id'
@@ -32,5 +32,13 @@ class M_amil extends MY_Model{
 		->result();
 		return $query;
 	}
+    public function ambil()
+    {
+        $query = $this->db
+        // ->where('status',0)
+        ->get($this->table['name'])
+        ->result_array();
+        return $query;
+    }
 
 }

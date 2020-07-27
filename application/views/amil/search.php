@@ -7,20 +7,8 @@
             <h3>Form Amil</h3>
           </div>
           <form method="post" action="<?=$url?>">
-            <input type="hidden" name="id" value= "<?=(!empty($data->id) ? $data->amil_id: '')?>">
+            <input type="hidden" name="amil_id" value= "<?=(!empty($data->amil_id) ? $data->amil_id: '')?>">
           <div class="card-body">
-            <div class="form-group">
-              <label>Nama</label>
-              <input type="text" name="nama" class="form-control" value = "<?=(!empty($data->nama) ? $data->nama: '')?>">
-            </div>
-            <div class="form-group">
-              <label>Nama Barang</label>
-              <input type="text" name="nama_barang" class="form-control" value = "<?=(!empty($data->nama_barang) ? $data->nama_barang: '')?>">
-            </div>
-            <div class="form-group">
-              <label>Alamat</label>
-              <textarea class="form-control" name="alamat"><?=(!empty($data->alamat) ? $data->alamat: '')?></textarea>
-            </div>
             <div class="form-group">
               <label>Titik Lokasi</label>
               <div id="map" style="height: 300px;width: 100%"></div>

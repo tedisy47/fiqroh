@@ -24,5 +24,16 @@ class MY_Model extends CI_Model{
 	{
 		return $this->db->count_all($this->table['name']);
 	}
+	public function by_id($id)
+	{
+		$query = $this->db
+		->where($this->table['primary_key'],$id)
+		->get($this->table['name'])->row();
+		return $query;
+	}
+	public function insert_batch($data)
+	{
+		$this->db->insert_batch($this->table['name'], $data);
+	}
 
 }

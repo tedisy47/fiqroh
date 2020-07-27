@@ -1,0 +1,18 @@
+https://maps.googleapis.com/maps/api/distancematrix/json?origins=6.223113476221565,106.70900502671168&destinations=%E2%80%9D.$tujuan.%E2%80%9D&language=id-ID%E2%80%9D;%20$result%20=%20file_get_contents($urlApi);
+
+
+https://maps.googleapis.com/maps/api/distancematrix/json?origins=@-6.2060608,106.7285535,14&destinations=@-6.2020077,106.7686365,15&key=AIzaSyAgINDzGpgwWpcZtnOLuw5DtWcrO_VUsoE&language=id-ID
+
+
+
+
+
+
+https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=40.6655101,-73.89188969999998&destinations=enc:40.6655101,-73.89188969999998:&key=AIzaSyAgINDzGpgwWpcZtnOLuw5DtWcrO_VUsoE
+
+https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=40.6655101,-73.89188969999998&destinations=40.6905615%2C-73.9976592%7C40.6905615%2C-73.9976592%7C40.6905615%2C-73.9976592%7C40.6905615%2C-73.9976592%7C40.6905615%2C-73.9976592%7C40.6905615%2C-73.9976592%7C40.659569%2C-73.933783%7C40.729029%2C-73.851524%7C40.6860072%2C-73.6334271%7C40.598566%2C-73.7527626%7C40.659569%2C-73.933783%7C40.729029%2C-73.851524%7C40.6860072%2C-73.6334271%7C40.598566%2C-73.7527626&key=AIzaSyAgINDzGpgwWpcZtnOLuw5DtWcrO_VUsoE
+
+https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=-6.215916, 106.705486&destinations=-6.214764, 106.707471&key=AIzaSyAgINDzGpgwWpcZtnOLuw5DtWcrO_VUsoE&mode=driving&language=id
+
+
+h
