@@ -22,7 +22,11 @@ class Ambil extends CI_Controller {
         $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$post['lat'].",".$post['lng']."&destinations=".$post['lat'].",".$post['lng']."&key=AIzaSyAgINDzGpgwWpcZtnOLuw5DtWcrO_VUsoE&mode=driving&language=id");
 //        echo $api;die;
         $api = json_decode($api,TRUE);
+<<<<<<< HEAD
      	//print_r($api);
+=======
+        // print_r($api);die;
+>>>>>>> 4914fa015e24697a1155a05b8c6fd995edc7ef29
         $data['jarak'] = $api['rows'][0]['elements'][0]['distance']['value']; 
         $data['id_pengambilan'] = $this->session->userdata('login_id');
         $data['kurir'] = $this->session->userdata('login_id');
@@ -65,7 +69,7 @@ class Ambil extends CI_Controller {
             $api = json_decode($api,TRUE);
             $data['jarak'] = $api['rows'][0]['elements'][0]['distance']['value']; 
             $data['id_pengambilan'] = $value['id'];
-            $data['eykurir'] = $this->session->userdata('login_id');
+            $data['kurir'] = $this->session->userdata('login_id');
             $data['titik_awal'] = $lokasi_index['titik_awal'];
             $data['titik_akhir'] = $value['id'];
             $data['jalur'] = $jalur;
