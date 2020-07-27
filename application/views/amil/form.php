@@ -4,7 +4,7 @@
         <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <h3>Form Amil</h3>
+            <h3>Form Muzakki</h3>
           </div>
           <form method="post" action="<?=$url?>">
             <input type="hidden" name="id" value= "<?=(!empty($data->id) ? $data->amil_id: '')?>">

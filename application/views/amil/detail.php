@@ -28,8 +28,10 @@
             </tr>
             <tr>
               <td colspan="2" align="left">
+                <?php if ($this->session->userdata('level')==3): ?>s
                 <a class="btn btn-danger" href="<?=site_url('amil/delete/'.$data->id)?>">Hapus</a>
                 <a class="btn btn-warning" href="<?=site_url('amil/form/'.$data->id)?>">Edit</a>
+                <?php endif ?>
               </td>
             </tr>
           </table>

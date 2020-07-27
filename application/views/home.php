@@ -24,17 +24,12 @@
     <?php if ($this->session->userdata('level')==0):?>
     <div class="col-4 mb-3">
       <a href="<?=site_url('kalkulator')?>" class="btn btn-success btn-block">
-        <i class="fa fa-home fa-2x"></i><br>Kalkulator Zakat
+        <i class="fa fa-calculator fa-2x"></i><br>Kalkulator Zakat
       </a>
     </div>
     <div class="col-4 mb-3">
       <a href="<?=site_url('amil/list')?>" class="btn btn-success btn-block">
-        <i class="fa fa-home fa-2x"></i><br>Tentang Zakat
-      </a>
-    </div>
-    <div class="col-4 mb-3">
-      <a href="<?=site_url('amil/list')?>" class="btn btn-success btn-block">
-        <i class="fa fa-home fa-3x"></i><br>Amil
+        <i class="fa fa-info-circle fa-2x"></i><br>Tentang Zakat
       </a>
     </div>
     <?php endif ?>
