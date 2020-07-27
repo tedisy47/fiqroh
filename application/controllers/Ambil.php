@@ -105,19 +105,19 @@ class Ambil extends CI_Controller {
                 $count_jalur = count($count_jalur);
                 if ($count_jalur == $lokasi) {
                     # code...
-                    $rute[$key]['jarak'] = $v['jarak'];
-                    $rute[$key]['jalur'] = $v['jalur'];
+                    $data[$key]['jarak'] = $v['jarak'];
+                    $data[$key]['jalur'] = $v['jalur'];
                     
                 }
                 
             }
         }
-        print_r($rute);die;
-        $data['rute'] = min($rute);
+        // print_r($data);die;
+        $data['rute'] = min($data);
 
         $data['title'] = 'Amil';
         $data['page'] = 'test';
-        // print_r($data);die;
+        print_r($data);die;
         $this->load->view('index',$data);
         // print_r($sortir)
     }
