@@ -112,6 +112,7 @@ class Ambil extends CI_Controller {
                 
             }
         }
+        print_r($rute);die;
         $data['rute'] = min($rute);
 
         $data['title'] = 'Amil';
@@ -126,7 +127,7 @@ class Ambil extends CI_Controller {
         $lokasi = count($this->amil->ambil());
         $next = $this->recursive($this->session->userdata('login_id'),$this->session->userdata('login_id'),$lokasi+1,0);
             // code...
-            print_r($next);die();
+            // print_r($next);die();
 
         $hasil = $this->get_hasl($next);
        redirect('Ambil/maps');
