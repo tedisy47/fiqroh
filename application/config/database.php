@@ -76,13 +76,8 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-<<<<<<< HEAD
-	'username' => 'kocplay',
-	'password' => 'jkt4774!',
-=======
 	'username' => 'root',
 	'password' => '',
->>>>>>> 4914fa015e24697a1155a05b8c6fd995edc7ef29
 	'database' => 'skripsi_fiqroh',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
