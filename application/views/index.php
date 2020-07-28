@@ -15,6 +15,7 @@
   <!--<link rel="stylesheet" href="<?=base_url()?>assets/css/adminlte.min.css"> --> 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="<?=base_url()?>assets/css/gw.css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <!--
 `body` tag options:
@@ -65,7 +66,6 @@
 
 <!-- jQuery -->
 <script src="<?=base_url()?>assets/plugins/jquery/jquery.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- Bootstrap -->
 <?=$this->session->flashdata('sweatalert')?>
 <script src="<?=base_url()?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

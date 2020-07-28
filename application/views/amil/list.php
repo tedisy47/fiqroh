@@ -44,7 +44,7 @@
   </div>
   <!-- /.content -->
 </div>
-
+<div id="map" style="display:none;">
  <script>
       var map, infoWindow;
 function initMap() {
@@ -54,6 +54,9 @@ function initMap() {
   });
   infoWindow = new google.maps.InfoWindow();
 
+  // if(navigator.geolocation==undefined)
+  //   swal("Titik Tidak Ditemukan")
+
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
@@ -62,7 +65,8 @@ function initMap() {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
-        // alert(pos);
+        if(pos.lat==undefined)
+          pos.lat??swal("Titik Tidak Ditemukan")
         console.log(pos)
         $('#lat').val(pos.lat)
         $('#lng').val(pos.lng)
@@ -75,7 +79,7 @@ function initMap() {
       function() {
         handleLocationError(true, infoWindow, map.getCenter());
       }
-    );
+    ); 
   } else {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
@@ -83,6 +87,9 @@ function initMap() {
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  browserHasGeolocation
+    ? swal("Error: The Geolocation service failed.")
+    : swal("Error: Your browser doesn't support geolocation.")
   infoWindow.setPosition(pos);
   infoWindow.setContent(
     browserHasGeolocation
