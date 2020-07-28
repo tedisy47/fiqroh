@@ -40,5 +40,14 @@ class M_amil extends MY_Model{
         ->result_array();
         return $query;
     }
+    public function by_id($id)
+    {
+        $query = $this->db
+        ->select('langtitude,longtitiud')
+        ->where('id',$id)
+        ->get($this->table['name'])
+        ->row_array();
+        return $query;
+    }
 
 }

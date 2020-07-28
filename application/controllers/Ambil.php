@@ -29,6 +29,8 @@ class Ambil extends CI_Controller {
         $data['titik_akhir'] = $this->session->userdata('login_id');
         $data['jalur'] = 0;
         $jalur = 0;
+        $this->session->set_userdata('lat',$post['lat']);
+        $this->session->set_userdata('lng',$post['lng']);
         $this->pick_up->insert($data);
         foreach ($lokasi as $key => $value) {
             $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$post['lat'].",".$post['lng']."&destinations=".$value['langtitude'].",".$value['longtitiud']."&key=AIzaSyAgINDzGpgwWpcZtnOLuw5DtWcrO_VUsoE&mode=driving&language=id");
@@ -114,10 +116,29 @@ class Ambil extends CI_Controller {
         }
         // print_r($data);die;
         $data['rute'] = min($data);
-
-        $data['title'] = 'Amil';
-        $data['page'] = 'test';
-        print_r($data);die;
+        $rute = $data['rute']['jalur'];
+        $rute = explode(',', $rute);
+        foreach ($rute as $key => $value) {
+            # code...
+            if ($value!=$this->session->userdata('login_id')) {
+                $data1[$key]=$this->amil->by_id($value);
+            }
+        }
+        $data['lat_origin'] = $this->session->userdata('lat');
+        $data['lng_origin'] = $this->session->userdata('lng');
+        // print_r($data1);die;
+        $a=array();
+          foreach ($data1 as $k => $v) {
+              # code...
+            $a[] = array(
+                'lat' => $v['langtitude'],
+                'long' => $v['longtitiud']
+            );
+          }
+        $data['rute'] =json_encode($a);
+        $data['title'] = 'rute';
+        $data['page'] = 'rute';
+        // print_r($data);die;
         $this->load->view('index',$data);
         // print_r($sortir)
     }
