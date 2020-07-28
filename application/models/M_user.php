@@ -21,5 +21,12 @@ class M_user extends MY_Model{
 		->row();
 		return $query;
 	}
+	public function get($start,$limit)
+	{
+		$query = $this->db
+		->get($this->table['name'],$limit,$start)
+		->result();
+		return $query;
+	}
 
 }
