@@ -1,5 +1,7 @@
 <?php
+// namespace Midtrans;
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 
 class Ambil extends CI_Controller {
 
@@ -121,7 +123,7 @@ class Ambil extends CI_Controller {
         foreach ($rute as $key => $value) {
             # code...
             if ($value!=$this->session->userdata('login_id')) {
-                $data1[$key]=$this->amil->by_id($value);
+                $data1[$key]=$this->amil->by_id1($value);
             }
         }
         $data['lat_origin'] = $this->session->userdata('lat');

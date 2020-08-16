@@ -10,7 +10,8 @@ class M_user extends MY_Model{
         	'primary_key' => 'user_id'
         );
          
-    }
+	}
+	
 	public function login($email,$password)
 	{
 		$query = $this->db
@@ -22,4 +23,30 @@ class M_user extends MY_Model{
 		return $query;
 	}
 
+	public function get($start,$limit)
+	{
+		$query = $this->db
+		->get($this->table['name'],$limit,$start)
+		->result();
+		return $query;
+	}
+
+	public function by_id($id)
+	{
+		$query = $this->db
+		->where('user_id',$id)
+		->get($this->table['name'])
+		->row();
+		return $query;
+	}
+
+	public function insert($data)
+	{
+		$this->db->insert($this->table['name'], $data);
+	}
+
+	public function delete($id)
+	{
+		$this->db->delete($this->table['name'], ['user_id' => $id]);
+	}
 }

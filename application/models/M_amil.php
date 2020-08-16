@@ -40,7 +40,7 @@ class M_amil extends MY_Model{
         ->result_array();
         return $query;
     }
-    public function by_id($id)
+    public function by_id1($id)
     {
         $query = $this->db
         ->select('langtitude,longtitiud')

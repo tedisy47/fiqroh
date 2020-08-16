@@ -1,50 +1,90 @@
  <div class="content-wrapper">
-  <!-- Content Header (Page header) -->
-
-  <!-- Main content -->
   <div class="content">
-    <div class="container-fluid">
-      <div class="row pt-5">
+    <div class="container my-5">
+      <div class="row align-middle pt-5">
         <div class="col-12">
-          <!-- small box -->
-          <table class="table table-striped">
-            <tr>
-              <td>Nama</td>
-              <td><b><?=$data->nama?></b></td>
-            </tr>
-            <tr>
-              <td>Nama Barang</td>
-              <td><b><?=$data->nama_barang?></b></td>
-            </tr>
-            <tr>
-              <td>Alamat</td>
-              <td><b><?=$data->alamat?></b></td>
-            </tr>
-            <tr>
-              <td colspan="2">
-                <div id="map" style="width: 100%; height: 300px"></div>
-               </iframe>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="2" align="left">
-                <?php if ($this->session->userdata('level')==3): ?>s
-                <a class="btn btn-danger" href="<?=site_url('amil/delete/'.$data->id)?>">Hapus</a>
-                <a class="btn btn-warning" href="<?=site_url('amil/form/'.$data->id)?>">Edit</a>
-                <?php endif ?>
-              </td>
-            </tr>
-          </table>
-        </div>          
-        <!-- /.col-md-6 -->
+          <button onclick="window.history.back()" class="btn btn-warning mb-3 mt-1 float-left"><i class="fa fa-arrow-left"></i> Back</button>
+          <nav aria-label="breadcrumb" class="float-right">
+              <ol class="breadcrumb px-0 button_breadcrumb">
+                  <li class="breadcrumb-item breadcrumb-home"><a href="<?= site_url('/'); ?>"><i class="fa fa-home"></i></a></li>
+                  <li class="breadcrumb-item active" aria-current="page"><?= $title; ?></li>
+              </ol>
+          </nav>
+        </div>
       </div>
-      <!-- /.row -->
+      <div class="row pt-3">
+        <div class="col-12">
+          <div class="card card-list">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-12">
+                  <h5 class="my-0 py-0 text-center"><?= $title; ?></h5>
+                </div>
+              </div>
+            </div>
+            <div class="card-body pb-0">
+              <table class="table table-striped">
+                <tr>
+                  <th>Nama</th>
+                  <td><?=$data->nama?></td>
+                </tr>
+                <tr>
+                  <th>Nama Barang</th>
+                  <td><?=$data->nama_barang?></td>
+                </tr>
+                <tr>
+                  <th>Alamat</th>
+                  <td><?=$data->alamat?></td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <div id="map" style="width: 100%; height: 300px"></div>
+                  </td>
+                </tr>
+                <?php if ($this->session->userdata('level')==3): ?>
+                  <tr>
+                    <td colspan="2" align="left">
+                      <div class="row">
+                        <div class="col-6">
+                          <a class="btn btn-success btn-block" href="<?=site_url('amil/form/'.$data->id)?>"><i class="fas fa-pencil-alt"></i> Edit</a>
+                        </div>
+                        <div class="col-6">
+                          <a class="btn btn-warning btn-block" href="#" onclick="sweet<?= $data->id; ?>()"><i class="fas fa-trash"></i> Hapus</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                <?php endif ?>
+              </table>
+            </div>
+          </div>
+        </div>          
+      </div>
     </div>
-    <!-- /.container-fluid -->
   </div>
-  <!-- /.content -->
 </div>
-
+<script type="text/javascript">
+  function sweet<?= $data->id; ?>() {
+    swal({
+      title: "Anda Yakin Ingin Menghapus Data Ini?",
+      text: "Data yang sudah dihapus tidak dapat dikembalikan!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if(willDelete) {
+        swal(window.location.assign("<?php echo site_url('amil/delete/'.$data->id); ?>"), {
+          icon: "success",
+        });
+      } else {
+        swal("Batal Hapus Data!", {
+            icon: "error",
+        })
+      }
+    });;
+  }
+</script>
 <script>
 // Initialize and add the map
 function initMap() {

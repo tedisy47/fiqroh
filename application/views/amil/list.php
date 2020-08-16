@@ -1,48 +1,58 @@
- <div class="content-wrapper">
-  <!-- Content Header (Page header) -->
-
-  <!-- Main content -->
-  <div class="content">
-    <div class="container-fluid">
-      <div class="row pt-5">
-       <!--  <?php if ($this->session->userdata('level')==3): ?>
-        <div class="col-lg-12 col-12">
-          <a href="<?=site_url('amil/form')?>" class="btn btn-primary mb-2 float-right"><i class="fa fa-plus"></i> Tambah Amill</a>
-        </div>
-      <?php endif; ?> -->
-        <div class="col-lg-12 col-12">
-          <!-- small box -->
-          <?php foreach ($datalist as $key => $value): ?>
-          <a href="<?=site_url('amil/detail/'.$value->id)?>">
-            <div class="card pl-2 mb-2 bg-white">
-                <!-- <div class="col-3"><i class="fa fa-home"></i></div> -->
-                <h4><?=$value->nama?></h4>
-                <p><?= substr($value->alamat, 0,50)?></p>
-            </div>
-          </a>
-          <?php endforeach;?>
-        </div>          
-        <!-- /.col-md-6 -->
-      </div>
-      <div class="row pd-5">
-        <div class="col-lg-12 col-12">
-          <?=$pagination?>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <form method="post" action="<?=site_url('ambil/index')?>">
-            <input type="hidden" name="lat" id="lat">
-            <input type="hidden" name="lng" id="lng">
-            <button type="submit" class="btn btn-success btn-block"><i class="fa fa-truck fa-2x"></i><br>Ambil Zakat</button>        
-          </form>
-        </div>
-      </div>
-      <!-- /.row -->
+<div class="container my-5">
+  <div class="row align-middle pt-5">
+    <div class="col-12">
+      <button onclick="window.history.back()" class="btn btn-warning mb-3 mt-1 float-left"><i class="fa fa-arrow-left"></i> Back</button>
+      <nav aria-label="breadcrumb" class="float-right">
+          <ol class="breadcrumb px-0 button_breadcrumb">
+              <li class="breadcrumb-item breadcrumb-home"><a href="<?= site_url('/'); ?>"><i class="fa fa-home"></i></a></li>
+              <li class="breadcrumb-item active" aria-current="page"><?= $title; ?></li>
+          </ol>
+      </nav>
     </div>
-    <!-- /.container-fluid -->
   </div>
-  <!-- /.content -->
+  <div class="row pt-3">
+    <div class="col-12">
+      <div class="card card-list">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-12">
+              <h5 class="my-0 py-0 text-center"><?= $title; ?></h5>
+            </div>
+          </div>
+        </div>
+        <div class="card-body pb-0">
+          <?php foreach ($datalist as $key => $value): ?>
+            <div class="row mb-4">
+              <div class="col-12">
+                <a href="<?=site_url('amil/detail/'.$value->id)?>" class="item">
+                  <div class="card card-list-item pl-3 py-3 bg-white">
+                    <h6><?=$value->nama?></h6>
+                    <p class="pb-0 mb-0"><?= substr($value->alamat, 0,50)?></p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          <?php endforeach;?>
+          <div class="row">
+            <div class="col-12">
+              <?=$pagination?>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-12">
+              <form method="post" action="<?=site_url('ambil/index')?>">
+                <input type="hidden" name="lat" id="lat">
+                <input type="hidden" name="lng" id="lng">
+                <button type="submit" class="btn btn-success btn-block"><i class="fa fa-truck"></i> Ambil Zakat</button>        
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>          
+  </div>
 </div>
 <div id="map" style="display:none;">
  <script>

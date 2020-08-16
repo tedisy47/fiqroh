@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard 3</title>
+  <title>YukZakat<?= ($title) ? ' | '.$title : ''; ?></title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -14,37 +14,22 @@
   <!-- Theme style -->
   <!--<link rel="stylesheet" href="<?=base_url()?>assets/css/adminlte.min.css"> --> 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="<?=base_url()?>assets/css/gw.css">
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <link rel="stylesheet" href="<?=base_url()?>assets/css/style.css">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="<?=base_url()?>assets/plugins/jquery/jquery.min.js"></script>
 </head>
-<!--
-`body` tag options:
-
-  Apply one or more of the following classes to to the body tag
-  to get the desired effect
-
-  * sidebar-collapse
-  * sidebar-mini
--->
-<body  style="background: #f7f7f7">
+<body>
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light text-center" style="background: white">
-    <button onclick="window.history.back()" class="btn btn-warning"><i class="fa fa-arrow-left"></i> Back</button>
-
-    <h3 class="pl-5 ml-3"><?=$title?></h3>
-    <!-- Left navbar links -->
-  
-
-    <!-- SEARCH FORM -->
-
-    <!-- Right navbar links -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light text-center fixed-top" style="background: white; box-shadow: 0px 10px 10px 0px #aaa !important;">
+    <a class="navbar-brand" href="<?=site_url('/')?>"><h2 class="my-auto font-weight-bold">Yuk<span style="color: #28a745;">Zakat</span></h2></a>
     <ul class="navbar-nav ml-auto">
-      <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
-        <a class="btn btn-danger" href="<?=site_url('welcome/logout')?>">logout
-        </a>
+        <?php if (!$this->session->userdata('login_id')): ?>          
+        <a class="btn btn-success" href="<?=site_url('welcome')?>"><i class="fas fa-sign-in-alt"></i> Login</a>
+      <?php else: ?>        
+        <a class="btn btn-warning" href="<?=site_url('welcome/logout')?>"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      <?php endif ?>
       </li>
-      <!-- Notifications Dropdown Menu -->
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -65,7 +50,6 @@
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src="<?=base_url()?>assets/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap -->
 <?=$this->session->flashdata('sweatalert')?>
 <script src="<?=base_url()?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
