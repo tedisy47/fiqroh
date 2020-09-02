@@ -1,7 +1,7 @@
 
 <div class="container my-5">
 	<div class="row pt-5 pb-5" style="font-size: 10px;">
-    <?php if ($this->session->userdata('login_id')):?>
+    <?php if ($this->session->userdata('login_id') >0): ?>
     <div class="col-6 col-md-4 mb-4">
       <a href="<?=site_url('amil/list')?>" class="btn btn-success btn-block py-3 card-menu">
         <i class="fa fa-users fa-2x"></i><br>Muzakki

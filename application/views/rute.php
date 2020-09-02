@@ -1,3 +1,40 @@
+<div class="container my-5">
+  <div class="row align-middle pt-5">
+      <div class="col-12">
+        <button onclick="window.history.back()" class="btn btn-warning mb-3 mt-1 float-left"><i class="fa fa-arrow-left"></i> Back</button>
+        <nav aria-label="breadcrumb" class="float-right">
+            <ol class="breadcrumb px-0 button_breadcrumb">
+                <li class="breadcrumb-item breadcrumb-home"><a href="<?= site_url('/'); ?>"><i class="fa fa-home"></i></a></li>
+                <li class="breadcrumb-item active" aria-current="page"><?= $title; ?></li>
+            </ol>
+        </nav>
+      </div>
+  </div>
+  <div class="row pt-3">
+    <div class="col-12">
+      <div class="card card-form">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-12 col-md-6 order-2 order-md-1">
+              <h5 class="float-md-left my-0 py-0 text-center mt-3 mt-md-2"><?= $title; ?></h5>
+            </div>
+          </div>
+        </div>
+          <div class="card-body">
+            <div id="map" style="width: 100%; height: 500px;"></div>
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- /.row -->
+</div>
+
+
+
+
+
+
 <div class="container">
   <div class="row pt-5 pb-5">
 	 <div id="map" style="width: 100%; height: 500px;"></div>
@@ -20,14 +57,12 @@
 
     function calculateAndDisplayRoute(directionsService, directionsRenderer) {
       const waypts = [];
-      const checkboxArray = $('#rute').val();
-      checkboxArray = JSON.parse(`<?=$rute?>`);
+      const checkboxArray = <?=$rute?>;
       console.log(checkboxArray);
-      
-      	console.log(checkboxArray)
       for (let i = 0; i < checkboxArray.length; i++) {
+        // console.log(checkboxArray)
           waypts.push({
-            location: '',
+            location: checkboxArray[i].lat+','+checkboxArray[i].long,
             stopover: true
           });
       }

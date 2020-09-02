@@ -15,7 +15,7 @@ class M_user extends MY_Model{
 	public function login($email,$password)
 	{
 		$query = $this->db
-		->join('user_detail','user_detail.user_id=user.user_id','left')
+		// ->join('user_detail','user_detail.user_id=user.user_id','left')
 		->where('email',$email)
 		->where('password',$password)
 		->get($this->table['name'])

@@ -17,8 +17,15 @@ class Ambil extends CI_Controller {
     }
     public function index()
     {
+        $this->pick_up->delete_all();
+        $this->db->empty_table('hasil'); 
         $post = $this->input->post();
         // print_r($post);die;
+        if (empty($post['lat'])) {
+            # code...
+            $post['lat'] = '-6.259580836203357';
+            $post['lng'] = '106.81372684551062';
+        }
         $lokasi = $this->amil->ambil();
 
         $api = file_get_contents("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=".$post['lat'].",".$post['lng']."&destinations=".$post['lat'].",".$post['lng']."&key=AIzaSyAgINDzGpgwWpcZtnOLuw5DtWcrO_VUsoE&mode=driving&language=id");

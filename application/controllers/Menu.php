@@ -13,6 +13,7 @@ class Menu extends CI_Controller {
 	{
 		$data['title'] = 'Home';
 		$data['page'] = 'home';
+		// print_r($this->session->userdata());
 		$this->load->view('index',$data);
 	}
 	public function berhasil()

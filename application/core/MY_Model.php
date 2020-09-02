@@ -35,5 +35,9 @@ class MY_Model extends CI_Model{
 	{
 		$this->db->insert_batch($this->table['name'], $data);
 	}
+	public function delete_all()
+	{
+		$this->db->empty_table($this->table['name']); 
+	}
 
 }

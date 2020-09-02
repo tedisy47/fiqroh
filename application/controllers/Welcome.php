@@ -18,6 +18,7 @@ class Welcome extends CI_Controller {
 		$post = $this->input->post();
 		$login = $this->user->login($post['email'],md5($post['password']));
 		if (!empty($login)) {
+			// print_r($login);die;
 			$this->session->set_userdata('login_id',$login->user_id);
 			$this->session->set_userdata('name',$login->fullname);
 			$this->session->set_userdata('level',$login->hak_akses);
